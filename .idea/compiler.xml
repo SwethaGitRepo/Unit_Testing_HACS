@@ -6,11 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="unit_test_hacs" />
+        <module name="ser_515_hacs" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="unit_test_hacs" target="19" />
-    </bytecodeTargetLevel>
   </component>
 </project>
