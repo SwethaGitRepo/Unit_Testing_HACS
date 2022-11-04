@@ -1,7 +1,7 @@
-pepe:CSE870
-pepe:CSE880
-yaya:CSE870
-yaya:CSE890
-Inst1:CSE870
-Inst1:CSE880
-Inst1:CSE890
+student1:CSE870
+student1:CSE880
+student2:CSE870
+student2:CSE890
+Instructor:CSE870
+Instructor:CSE880
+Instructor:CSE890

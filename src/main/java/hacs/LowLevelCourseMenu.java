@@ -7,6 +7,8 @@ package hacs;
  * Company:      msu
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 import javax.swing.*;
 import java.awt.*;
@@ -14,19 +16,13 @@ import java.awt.event.*;
 
 public class LowLevelCourseMenu extends CourseMenu {
     final int x1 = 389, y1 = 54, w1 = 79, h1 = 29;
-
     final int x2 = 390, y2 = 125, w2 = 79, h2 = 29;
-
-    final int x3 = 21, y3 = 55, w3 = 103, h3 = 26;
-    final int x4 = 21, y4 = 128, w4 = 103, h4 = 26;
-
-    final int x5 = 140, y5 = 57, w5 = 126, h5 = 22;
-    final int x6 = 137, y6 = 127, w6 = 126, h6 = 22;
-
+    final int x3 = 21, y3 = 55, w3 = 110, h3 = 26;
+    final int x4 = 21, y4 = 128, w4 = 110, h4 = 26;
+    final int x5 = 150, y5 = 57, w5 = 126, h5 = 22;
+    final int x6 = 150, y6 = 127, w6 = 126, h6 = 22;
     final int x7 = 290, y7 = 54, w7 = 79, h7 = 29;
-
     final int x8 = 290, y8 = 124, w8 = 79, h8 = 29;
-
     final int x9 = 23, y9 = 186, w9 = 432, h9 = 99;
     public LowLevelCourseMenu() {
     }
@@ -40,6 +36,7 @@ public class LowLevelCourseMenu extends CourseMenu {
         assignmentAddButton.addActionListener(e -> assignmentAddButtonActionPerformed(e));
         assignmentAddButton.setText("Add");
         assignmentAddButton.setBounds(new Rectangle(x1, y1, w1, h1));
+        optionAddButton.addActionListener(this::assignmentAddButtonActionPerformed);
         optionAddButton.setText("Add");
         optionAddButton.setBounds(new Rectangle(x2, y2, w2, h2));
         this.getContentPane().add(assignmentAddButton, null);

@@ -6,6 +6,8 @@ package hacs;
   Company:      msu
   @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 
 import javax.swing.*;
@@ -41,6 +43,7 @@ public class HighLevelCourseMenu extends CourseMenu {
         assignmentAddButton.addActionListener(this::assignmentAddButtonActionPerformed);
         assignmentAddButton.setText("Add");
         assignmentAddButton.setBounds(new Rectangle(l1, l2, l3, l4));
+        optionAddButton.addActionListener(this::assignmentAddButtonActionPerformed);
         optionAddButton.setText("Add");
         optionAddButton.setBounds(new Rectangle(x1, x2, l3, l4));
         this.getContentPane().add(assignmentAddButton, null);

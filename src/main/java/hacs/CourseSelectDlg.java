@@ -9,6 +9,8 @@ import java.awt.event.*;
  *
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 
 @SuppressWarnings("ALL")
@@ -37,6 +39,7 @@ public class CourseSelectDlg extends JDialog {
             jbInit();
             setSize(ko, sn);
             setLocationRelativeTo(null);
+            setTitle("Course Selection");
             setModal(true);
         } catch (Exception e) {
             e.printStackTrace();

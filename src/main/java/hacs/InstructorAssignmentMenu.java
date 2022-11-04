@@ -12,6 +12,8 @@ import java.text.DateFormat;
  * Company:      msu
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 
 @SuppressWarnings("ALL")
@@ -20,11 +22,11 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     final int l5 = 192, l6 = 341, l7 = 22, l8 = 28;
     final int l9 = 90, l10 = 113, l11 = 195, l12 = 87;
     final int l13 = 337, l14 = 151, l15 = 197, l16 = 149;
-    final int l17 = 339, l18 = 458, l19 = 199, l20 = 79;
-    final int l21 = 29, l22 = 365, l23 = 249, l24 = 253;
-    final int l25 = 86, l26 = 32, l27 = 413, l28 = 204;
+    final int l17 = 339, l18 = 458, l19 = 200, l20 = 79;
+    final int l21 = 29, l22 = 365, l23 = 249;
+    final int l25 = 225, l26 = 32, l27 = 413, l28 = 204;
 
-    /*class AssignmentMenu*/
+    //Assignment menu for Instructor portal
     private Assignment theAssignment;
     JComboBox combSolutionList = new JComboBox();
     JTextField tbAssignmentName = new JTextField();
@@ -35,6 +37,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     JLabel jLabel3 = new JLabel();
     JButton buttonGrade = new JButton();
     JButton buttonReport = new JButton();
+    JButton buttonAdd = new JButton();
     JButton buttonClose = new JButton();
     public InstructorAssignmentMenu() {
         try {
@@ -71,8 +74,15 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
                 buttonReportActionPerformed(e);
             }
         });
+        buttonAdd.setText("Add");
+        buttonAdd.setBounds(new Rectangle(l20, l23, l20, l21));
+        buttonAdd.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                buttonCloseActionPerformed(e);
+            }
+        });
         buttonClose.setText("Close");
-        buttonClose.setBounds(new Rectangle(l25, l24, l20, l21));
+        buttonClose.setBounds(new Rectangle(l25, l23, l20, l21));
         buttonClose.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 buttonCloseActionPerformed(e);
@@ -85,6 +95,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
         this.getContentPane().add(tbDueDate, null);
         this.getContentPane().add(jLabel3, null);
         this.getContentPane().add(tbSuggestedSolution, null);
+        this.getContentPane().add(buttonAdd, null);
         this.getContentPane().add(buttonClose, null);
         this.getContentPane().add(combSolutionList, null);
         this.getContentPane().add(buttonGrade, null);

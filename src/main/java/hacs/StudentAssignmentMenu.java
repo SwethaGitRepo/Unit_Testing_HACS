@@ -10,6 +10,8 @@ import java.util.*;
  *
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 
 public class StudentAssignmentMenu extends AssignmentMenu {
@@ -64,7 +66,7 @@ public class StudentAssignmentMenu extends AssignmentMenu {
         jLabel3.setBounds(new Rectangle(x3, y3, z3, height1));
         lDueDate.setText("jLabel4");
         lDueDate.setBounds(new Rectangle(x4, y4, z4, height1));
-        jLabel5.setText("Solution");
+        jLabel5.setText("");
         jLabel5.setBounds(new Rectangle(x5, y5, z5, height1));
         tbSolution.setText("jTextField1");
         tbSolution.setBounds(new Rectangle(x6, y6, z6, height2));

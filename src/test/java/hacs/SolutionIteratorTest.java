@@ -27,16 +27,8 @@ class SolutionIteratorTest {
     }
 
     @Test
-    void moveToHead() {
-    }
-
-    @Test
     void hasNext() {
         assertTrue(i.hasNext());
-    }
-
-    @Test
-    void next() {
     }
 
     @Test

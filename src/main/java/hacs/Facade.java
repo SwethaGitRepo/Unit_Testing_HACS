@@ -12,8 +12,9 @@ import java.io.IOException;
  * @version 1.0
  * @author mjfindler
  * @version 2.0
- * 
- *          Update to Jave 8
+ * Update to Jave 8
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 
 @SuppressWarnings("ALL")
@@ -28,6 +29,7 @@ public class Facade {
 
     static boolean login(UserInfoItem userinfoItem) {
         Login login = new Login();
+        login.setTitle("User Login");
         login.setModal(true);
         login.setVisible(true);
         login.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
@@ -74,7 +76,7 @@ public class Facade {
     }
 
     /*
-     * this function will grade the give Solution: theSolution this function calls
+     * this function will grade the given Solution: theSolution this function calls
      */
 
     void reportSolutions(Assignment theAssignment) {
@@ -131,7 +133,6 @@ public class Facade {
                     theSelectedCourse = findCourseByCourseName(strCourseName);
                     //System.out.println("Course Name :"+strCourseName);
                     if (theSelectedCourse != null) {
-                        System.out.println("Selected course Name :" + theSelectedCourse);
                         thePerson.addCourse(theSelectedCourse);
                     }
                 }

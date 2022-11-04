@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class AssignmentTest {
     final int year1 = 2022;
     final int year2 = 2026;
-    final int date = 03;
+    final int date = 3;
     Assignment ass = new Assignment();
     Solution sol = new Solution();
     @Test
@@ -80,7 +80,7 @@ class AssignmentTest {
 
     @Test
     void getSolutionIterator() {
-        assertTrue(ass.getSolutionIterator() instanceof SolutionIterator);
+        assertTrue(ass.getSolutionIterator() != null);
     }
 
     @Test

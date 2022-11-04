@@ -13,18 +13,16 @@ import java.util.Iterator;
  * Company:      msu
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 
 @SuppressWarnings("ALL")
 abstract class CourseMenu extends JDialog {
-    final int a = 503;
-    final int b = 294;
-    final int c = 101;
-    final int d = 211;
-    final int n = 73;
-    final int f = 37;
-    final int g = 267;
-    final int h = 215;
+    final int a = 503, b = 294, c = 101, d = 211;
+    final int n = 150;
+    final int f = 32;
+    final int g = 272;
     Course theCourse;
     boolean bLogout = true;
 
@@ -46,6 +44,7 @@ abstract class CourseMenu extends JDialog {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        setTitle("Assignment");
         setModal(true);
         setSize(a, b);
         setLocationRelativeTo(null);
@@ -58,7 +57,7 @@ abstract class CourseMenu extends JDialog {
         this.getContentPane().setLayout(null);
         this.setTitle("");
         buttonLogout.setText("Logout");
-        buttonLogout.setBounds(new Rectangle(g, h, n, f));
+        buttonLogout.setBounds(new Rectangle(g, d, c, f));
         buttonLogout.addActionListener(e -> buttonLogoutActionPerformed(e));
         this.getContentPane().add(buttonChangeCourse, null);
         this.getContentPane().add(buttonLogout, null);

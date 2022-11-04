@@ -8,6 +8,8 @@ import java.awt.event.*;
  *
  * @author Zhang ji Zhu Wei
  * @version 1.0
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 
 public class SolutionGradingDlg extends JDialog {
@@ -27,6 +29,7 @@ public class SolutionGradingDlg extends JDialog {
             jbInit();
             setSize(l1, l2);
             setLocationRelativeTo(null);
+            setTitle("Provide Solution");
             setModal(true);
         } catch (Exception e) {
             e.printStackTrace();

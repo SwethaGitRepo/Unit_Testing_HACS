@@ -9,6 +9,8 @@ import java.util.*;
  * @version 1.0
  * @author mjfindler
  * @version 2.0 use <e> notation
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 
 public class ListIterator implements Iterator<Object> {

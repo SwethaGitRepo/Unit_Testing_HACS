@@ -7,6 +7,8 @@ package hacs;
  *
  * @author Ji Zhang, Wei Zhu
  * @version 1.0
+ * @author Swetha Ganapathy
+ * @version 3.0 update to Java 11
  */
 
 public class Student extends Person {
