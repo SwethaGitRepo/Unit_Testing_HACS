@@ -1,5 +1,6 @@
 package hacs;
 
+import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -15,8 +16,8 @@ import java.io.IOException;
  *          Update to Jave 8
  */
 
+@SuppressWarnings("ALL")
 public class Facade {
-    int userType;
     private Course theSelectedCourse = null;
     private int nCourseLevel = 0;
     ClassCourseList theCourseList;
@@ -29,6 +30,7 @@ public class Facade {
         Login login = new Login();
         login.setModal(true);
         login.setVisible(true);
+        login.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
         userinfoItem.strUserName = login.getUserName();
         userinfoItem.userType = login.getUserType();
         return login.isExit();
@@ -75,11 +77,6 @@ public class Facade {
      * this function will grade the give Solution: theSolution this function calls
      */
 
-    void gradeSolution(Solution theSolution) {
-        SolutionMenu solutionMenu = new SolutionMenu();
-        solutionMenu.showMenu(theSolution);
-    }
-
     void reportSolutions(Assignment theAssignment) {
         Solution theSolution;
         SolutionIterator theSolutionIterator;
@@ -97,7 +94,7 @@ public class Facade {
     }
     void remind() {
         Reminder theReminder = new Reminder();
-        theReminder.showReminder(thePerson.getCourseList());
+        theReminder.showReminder();
     }
 
     void createUser(UserInfoItem userinfoitem) {
@@ -114,7 +111,7 @@ public class Facade {
      */
     void createCourseList() {
         theCourseList = new ClassCourseList();
-        theCourseList.initializeFromFile("src/main/java/hacs/CourseInfo.txt");
+        theCourseList.initializeFromFile("Unit_Testing_HACS/CourseInfo.txt");
     }
 
     /*
@@ -125,7 +122,7 @@ public class Facade {
     void attachCourseToUser() {
         BufferedReader file;
         try {
-            file = new BufferedReader(new FileReader("src/main/java/hacs/UserCourse.txt"));
+            file = new BufferedReader(new FileReader("Unit_Testing_HACS/UserCourse.txt"));
             String aline, strUserName, strCourseName;
             while ((aline = file.readLine()) != null) {
                 strUserName = getUserName(aline);
@@ -133,8 +130,8 @@ public class Facade {
                 if (strUserName.compareTo(thePerson.userName) == 0) {
                     theSelectedCourse = findCourseByCourseName(strCourseName);
                     //System.out.println("Course Name :"+strCourseName);
-                    //System.out.println("Selected course Name :"+theSelectedCourse);
                     if (theSelectedCourse != null) {
+                        System.out.println("Selected course Name :" + theSelectedCourse);
                         thePerson.addCourse(theSelectedCourse);
                     }
                 }

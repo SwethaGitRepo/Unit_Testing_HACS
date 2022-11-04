@@ -12,9 +12,6 @@ abstract class NodeVisitor {
     public NodeVisitor() {
     }
 
-    public NodeVisitor(Object visitee) {
-    }
-
     abstract void visitFacade(Facade facade);
 
     abstract void visitCourse(Course course);

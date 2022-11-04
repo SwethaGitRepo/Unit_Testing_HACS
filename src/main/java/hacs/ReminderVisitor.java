@@ -1,6 +1,4 @@
 package hacs;
-
-import java.util.Iterator;
 import java.util.*;
 
 /**
@@ -17,16 +15,13 @@ import java.util.*;
 /*
  * this class will iterate the course list attatched to on student and in turn
  * iterate the assignments of a course. after Function Visit(CourseList) it will
- * point to the location before the fist class, hasNext will retrun weather
+ * point to the location before the fist class, hasNext will return weather
  * there is next item. the next() will return the next Item Assignment;
  */
 
 public class ReminderVisitor extends NodeVisitor {
 
     Reminder mReminder;
-
-    public ReminderVisitor() {
-    }
 
     public ReminderVisitor(Reminder reminder) {
         mReminder = reminder;
@@ -41,9 +36,7 @@ public class ReminderVisitor extends NodeVisitor {
     }
 
     public void visitCourse(Course course) {
-        Iterator<Assignment> assignmentList = course.assignmentList.listIterator();
-        while (assignmentList.hasNext()) {
-            Assignment assignment = (Assignment) assignmentList.next();
+        for (Assignment assignment : course.assignmentList) {
             assignment.accept(this);
         }
     }
@@ -56,7 +49,7 @@ public class ReminderVisitor extends NodeVisitor {
         calendar.setTime(assignment.dueDate);
         int nDueDate = calendar.get(Calendar.DAY_OF_YEAR);
         if (nDueDate <= (ntoday + 1) && nDueDate >= ntoday) {
-            mReminder.listUpcoming.add("today is " + today.toString() + " " + assignment.assName + " Due Date is "
+            mReminder.listUpcoming.add("today is " + today + " " + assignment.assName + " Due Date is "
                     + assignment.getDueDateString());
         }
         if (nDueDate < ntoday) {

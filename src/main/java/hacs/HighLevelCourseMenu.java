@@ -1,17 +1,17 @@
 package hacs;
-/**
- * Title:        HACS
- * Description:
- * Copyright:    Copyright (c) 2002
- * Company:      msu
- * @author Zhang ji Zhu Wei
+/*
+  Title:        HACS
+  Description:
+  Copyright:    Copyright (c) 2002
+  Company:      msu
+  @author Zhang ji Zhu Wei
  * @version 1.0
  */
 
+import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
+@SuppressWarnings("ALL")
 public class HighLevelCourseMenu extends CourseMenu {
     final int l1 = 389, l2 = 54, l3 = 79, l4 = 29;
     final int x1 = 390, x2 = 125, x3 = 21, x4 = 55;
@@ -34,10 +34,11 @@ public class HighLevelCourseMenu extends CourseMenu {
         showRadios();
         showComboxes();
         setVisible(true);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
     }
 
     void showAddButtons() {
-        assignmentAddButton.addActionListener(e -> assignmentAddButtonActionPerformed(e));
+        assignmentAddButton.addActionListener(this::assignmentAddButtonActionPerformed);
         assignmentAddButton.setText("Add");
         assignmentAddButton.setBounds(new Rectangle(l1, l2, l3, l4));
         optionAddButton.setText("Add");
@@ -66,7 +67,7 @@ public class HighLevelCourseMenu extends CourseMenu {
     void showViewButtons() {
         assignmentViewButton.setText("View");
         assignmentViewButton.setBounds(new Rectangle(a2, b1, a3, l4));
-        assignmentViewButton.addActionListener(e -> assignmentViewButtonActionPerformed(e));
+        assignmentViewButton.addActionListener(this::assignmentViewButtonActionPerformed);
         optionViewButton.setText("View");
         optionViewButton.setBounds(new Rectangle(a2, a4, a3, l4));
         this.getContentPane().add(assignmentViewButton, null);

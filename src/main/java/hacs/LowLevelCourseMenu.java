@@ -33,6 +33,7 @@ public class LowLevelCourseMenu extends CourseMenu {
 
     void showMenu(Course theCourse) {
         setVisible(true);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
     }
 
     void showAddButtons() {

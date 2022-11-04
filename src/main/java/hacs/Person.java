@@ -1,5 +1,6 @@
 package hacs;
 
+import javax.swing.*;
 import java.util.*;
 
 /**
@@ -11,13 +12,13 @@ import java.util.*;
  * @version 1.0
  */
 
+@SuppressWarnings("ALL")
 abstract class Person {
     int type = 0; // type=0 : student, type=1 instructor
     String userName;
     ClassCourseList courseList;
     CourseMenu theCourseMenu;
     Course currentCourse;
-    Assignment currentAssignment;
 
     public Person() {
         courseList = new ClassCourseList();
@@ -43,6 +44,7 @@ abstract class Person {
 
     public void show() {
         theCourseMenu.setVisible(true);
+        theCourseMenu.setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
     }
 
     public boolean ifLogout() {
@@ -53,11 +55,11 @@ abstract class Person {
     public boolean showMenu() {
         // create an iterator for the assignment list
         // Iterator theIter=new ListIterator(CurrentCourse.AssList );
-        Iterator theIter = currentCourse.assignmentList.iterator();
+        Iterator<Assignment> theIter = currentCourse.assignmentList.iterator();
         theCourseMenu.theCourse = currentCourse;
         Assignment theAssignment;
         while (theIter.hasNext()) {
-            theAssignment = (Assignment) theIter.next();
+            theAssignment = theIter.next();
             theCourseMenu.assignmentCombox.addItem(theAssignment);
         }
         return false;

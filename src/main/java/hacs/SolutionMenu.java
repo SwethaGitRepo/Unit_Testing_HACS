@@ -21,6 +21,7 @@ public class SolutionMenu extends JDialog {
 
     void showMenu(Solution theSolution) {
         setVisible(true);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
     }
 
 }

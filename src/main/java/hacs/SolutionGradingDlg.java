@@ -26,20 +26,21 @@ public class SolutionGradingDlg extends JDialog {
         try {
             jbInit();
             setSize(l1, l2);
+            setLocationRelativeTo(null);
             setModal(true);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void jbInit() throws Exception {
+    private void jbInit() {
         jLabel1.setText("Solution File Name");
         jLabel1.setBounds(new Rectangle(l3, l4, l5, l6));
         this.getContentPane().setLayout(null);
         tfGrad.setBounds(new Rectangle(l7, l8, l9, l10));
         buttonOK.setText("OK");
         buttonOK.setBounds(new Rectangle(l11, l12, l13, l14));
-        buttonOK.addActionListener(e -> buttonOkActionPerformed(e));
+        buttonOK.addActionListener(this::buttonOkActionPerformed);
         labelSolutionFileName.setBounds(new Rectangle(l15, l16, l17, l18));
         this.getContentPane().add(jLabel1, null);
         this.getContentPane().add(tfGrad, null);
@@ -52,6 +53,7 @@ public class SolutionGradingDlg extends JDialog {
         tfGrad.setText("" + theSolution.getGradeInt());
         labelSolutionFileName.setText(theSolution.solutionFileName);
         setVisible(true);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
     }
 
     void buttonOkActionPerformed(ActionEvent e) {

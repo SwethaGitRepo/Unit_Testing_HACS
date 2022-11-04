@@ -11,6 +11,7 @@ import java.awt.event.*;
  * @version 1.0
  */
 
+@SuppressWarnings("ALL")
 public class CourseSelectDlg extends JDialog {
     //0 HighLevel presentation 1 LowLevel Experiment
     final int tr = 18, xs = 78, ln = 139, hs = 79;
@@ -35,6 +36,7 @@ public class CourseSelectDlg extends JDialog {
         try {
             jbInit();
             setSize(ko, sn);
+            setLocationRelativeTo(null);
             setModal(true);
         } catch (Exception e) {
             e.printStackTrace();
@@ -82,6 +84,7 @@ public class CourseSelectDlg extends JDialog {
             courseNameCom.addItem(theCourse);
         }
         this.setVisible(true);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
         return selectedCourse;
     }
 

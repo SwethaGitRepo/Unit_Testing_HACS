@@ -17,9 +17,11 @@ import java.io.*;
  * Update to Java 8
  */
 
+@SuppressWarnings("ALL")
 public class Login extends JDialog {
+    @Serial
     private static final long serialVersionUID = 1L;
-    boolean mbExit = false;
+    boolean mbExit = true;
     JLabel jLabel1 = new JLabel();
     JLabel jLabel2 = new JLabel();
     JButton loginButton = new JButton();
@@ -45,11 +47,12 @@ public class Login extends JDialog {
         try {
             jbInit();
             setSize(SET_WIDTH, SET_HEIGHT);
+            setLocationRelativeTo(null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-    private void jbInit() throws Exception {
+    private void jbInit() {
         this.getContentPane().setLayout(null);
         jLabel1.setText("UserName");
         jLabel1.setBounds(new Rectangle(x1, y1, w1, h1));
@@ -57,18 +60,10 @@ public class Login extends JDialog {
         jLabel2.setBounds(new Rectangle(x2, y2, w2, h2));
         loginButton.setText("Login");
         loginButton.setBounds(new Rectangle(x3, y3, w3, h3));
-        loginButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                loginButtonActionPerformed(e);
-            }
-        });
+        loginButton.addActionListener(this::loginButtonActionPerformed);
         buttonExit.setText("Exit");
         buttonExit.setBounds(new Rectangle(x4, y4, w4, h4));
-        buttonExit.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                buttonExitActionPerformed(e);
-            }
-        });
+        buttonExit.addActionListener(this::buttonExitActionPerformed);
         userNameText.setBounds(new Rectangle(x5, y5, w5, h5));
         passwordText.setBounds(new Rectangle(x6, y6, w6, h6));
         studentRadio.setSelected(true);
@@ -94,15 +89,15 @@ public class Login extends JDialog {
         try {
             if (studentRadio.isSelected()) {
                 userType = UserInfoItem.UserType.STUDENT;
-                file = new BufferedReader(new FileReader("src/main/java/hacs/StuInfo.txt"));
+                file = new BufferedReader(new FileReader("Unit_Testing_HACS/StuInfo.txt"));
             } else {
                 userType = UserInfoItem.UserType.INSTRUCTOR;
-                file = new BufferedReader(new FileReader("src/main/java/hacs/InsInfor.txt"));
+                file = new BufferedReader(new FileReader("Unit_Testing_HACS/InsInfor.txt"));
             }
             userBox = userNameText.getText();
             String passwordBox = new String(passwordText.getPassword());
             String loginName = null;
-            String aline = null, userName = null, password = null;
+            String aline, userName, password;
             while ((aline = file.readLine()) != null) {
                 userName = getUserName(aline);
                 password = getPassword(aline);

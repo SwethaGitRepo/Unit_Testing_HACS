@@ -14,6 +14,7 @@ import java.text.DateFormat;
  * @version 1.0
  */
 
+@SuppressWarnings("ALL")
 public class InstructorAssignmentMenu extends AssignmentMenu {
     final int l1 = 25, l2 = 31, l3 = 118, l4 = 18;
     final int l5 = 192, l6 = 341, l7 = 22, l8 = 28;
@@ -24,8 +25,6 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
     final int l25 = 86, l26 = 32, l27 = 413, l28 = 204;
 
     /*class AssignmentMenu*/
-    private boolean bSubmit = false;
-    private Solution theSolution;
     private Assignment theAssignment;
     JComboBox combSolutionList = new JComboBox();
     JTextField tbAssignmentName = new JTextField();
@@ -100,6 +99,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
         tbSuggestedSolution.setText(theAssignment.suggestSolution.solutionFileName);
         refreshSolutionList();
         setVisible(true);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
     }
 
     void buttonCloseActionPerformed(ActionEvent e) {
@@ -136,7 +136,7 @@ public class InstructorAssignmentMenu extends AssignmentMenu {
         combSolutionList.removeAllItems();
         SolutionIterator solIter = new SolutionIterator(theAssignment.theSolutionList);
         while (solIter.hasNext()) {
-            theSolution = (Solution) solIter.next();
+            Solution theSolution = (Solution) solIter.next();
             combSolutionList.addItem(theSolution);
         }
     }

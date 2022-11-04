@@ -19,18 +19,13 @@ public class Hacs {
     }
 
     public static void main(String[] args) {
-        //String strUsername;
-        //String strUserType = null;
         UserInfoItem userinfoitem = new UserInfoItem();
         theFacade.createCourseList();
         while (true) {
-            boolean bExit = false;
-            bExit = theFacade.login(userinfoitem);
+            boolean bExit = Facade.login(userinfoitem);
             if (bExit) {
                 break;
             }
-            // userinfoitem.strUserName = "Inst1";
-            // userinfoitem.userType = 1;
             theFacade.createUser(userinfoitem);
             theFacade.attachCourseToUser();
             if (userinfoitem.userType == UserInfoItem.UserType.STUDENT) {
@@ -45,6 +40,5 @@ public class Hacs {
                 bLogout = theFacade.courseOperation();
             }
         }
-        //System.out.println(userinfoitem.strUserName +userinfoitem.userType );
     }
 }

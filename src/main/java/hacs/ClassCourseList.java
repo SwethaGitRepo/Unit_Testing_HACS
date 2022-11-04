@@ -15,6 +15,7 @@ import java.util.ArrayList;
  * @version 3.0 update to Java 11
  */
 
+@SuppressWarnings("ALL")
 public class ClassCourseList extends ArrayList<Course> {
     public ClassCourseList() {
     }
@@ -22,8 +23,8 @@ public class ClassCourseList extends ArrayList<Course> {
     //// initialize the list by reading from the file.
     void initializeFromFile(String theFileName) {
         try {
-            String strCourseName = null;
-            BufferedReader file = new BufferedReader(new FileReader("src/main/java/hacs/CourseInfo.txt"));
+            String strCourseName;
+            BufferedReader file = new BufferedReader(new FileReader(theFileName));
             while ((strCourseName = file.readLine()) != null) {
                 Course theCourse;
                 theCourse = new Course(strCourseName, 0);

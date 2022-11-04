@@ -15,6 +15,7 @@ import java.util.Iterator;
  * @version 1.0
  */
 
+@SuppressWarnings("ALL")
 abstract class CourseMenu extends JDialog {
     final int a = 503;
     final int b = 294;
@@ -47,6 +48,7 @@ abstract class CourseMenu extends JDialog {
         }
         setModal(true);
         setSize(a, b);
+        setLocationRelativeTo(null);
     }
 
     private void jbInit() throws Exception {

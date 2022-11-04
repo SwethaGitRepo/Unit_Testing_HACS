@@ -17,7 +17,6 @@ public class Reminder extends JDialog {
     final int l9 = 161, l10 = 29, l11 = 65, l12 = 340;
     final int l13 = 79, l14 = 31, l15 = 187, l16 = 337;
     final int l17 = 85, l18 = 149, l19 = 308, l20 = 67,  l21 = 37;
-    ClassCourseList courseList;
     JLabel jLabel1 = new JLabel();
     JLabel jLabel2 = new JLabel();
     java.awt.List listUpcoming = new java.awt.List();
@@ -29,12 +28,13 @@ public class Reminder extends JDialog {
             jbInit();
             setModal(true);
             setSize(l1, l2);
+            setLocationRelativeTo(null);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void jbInit() throws Exception {
+    private void jbInit() {
         jLabel1.setText("Upcoming Assignments");
         jLabel1.setBounds(new Rectangle(l3, l4, l5, l6));
         this.getContentPane().setLayout(null);
@@ -44,7 +44,7 @@ public class Reminder extends JDialog {
         listOverdue.setBounds(new Rectangle(l14, l15, l16, l17));
         buttonOK.setLabel("OK");
         buttonOK.setBounds(new Rectangle(l18, l19, l20, l21));
-        buttonOK.addActionListener(e -> buttonOkActionPerformed(e));
+        buttonOK.addActionListener(this::buttonOkActionPerformed);
         this.getContentPane().add(jLabel1, null);
         this.getContentPane().add(jLabel2, null);
         this.getContentPane().add(listUpcoming, null);
@@ -52,11 +52,11 @@ public class Reminder extends JDialog {
         this.getContentPane().add(buttonOK, null);
     }
 
-    void showReminder(ClassCourseList clsCourseList) {
-        Assignment assignment;
+    void showReminder() {
         ReminderVisitor visitor = new ReminderVisitor(this);
         visitor.visitFacade(Hacs.theFacade);
         setVisible(true);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
     }
 
     void buttonOkActionPerformed(ActionEvent e) {

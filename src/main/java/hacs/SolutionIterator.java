@@ -11,6 +11,7 @@ import java.util.Iterator;
  * @version 1.0
  */
 
+@SuppressWarnings("ALL")
 public class SolutionIterator implements Iterator {
     SolutionList solutionList;
     int currentSolutionNumber = -1;

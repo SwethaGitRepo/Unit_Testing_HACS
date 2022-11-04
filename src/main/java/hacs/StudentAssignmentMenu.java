@@ -16,8 +16,6 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 
     //class AssignmentMenu
     private boolean boolSubmit = false;
-    private Solution theSolution;
-    private Assignment theAssignment;
 
     JLabel lAssignmentName = new JLabel();
     JLabel lDueDate = new JLabel();
@@ -41,7 +39,7 @@ public class StudentAssignmentMenu extends AssignmentMenu {
         }
     }
 
-    private void jbInit() throws Exception {
+    private void jbInit() {
         final int x1 = 20, y1 = 36, z1 = 91;
         final int x2 = 258, y2 = 35, z2 = 282;
         final int x3 = 21, y3 = 81, z3 = 92;
@@ -80,10 +78,10 @@ public class StudentAssignmentMenu extends AssignmentMenu {
         lGrade.setBounds(new Rectangle(x10, y10, z10, height1));
         bSubmit.setText("Submit");
         bSubmit.setBounds(new Rectangle(x11, y11, z11, height3));
-        bSubmit.addActionListener(e -> bSubmitActionPerformed(e));
+        bSubmit.addActionListener(this::bSubmitActionPerformed);
         bCancel.setText("Cancel");
         bCancel.setBounds(new Rectangle(x12, y12, z12, height3));
-        bCancel.addActionListener(e -> bCancelActionPerformed(e));
+        bCancel.addActionListener(this::bCancelActionPerformed);
         this.getContentPane().add(jLabel1, null);
         this.getContentPane().add(jLabel3, null);
         this.getContentPane().add(jLabel5, null);
@@ -103,9 +101,8 @@ public class StudentAssignmentMenu extends AssignmentMenu {
      * solution for the student. after showing the solution attach the solution;
      */
     public void showMenu(Assignment assignment, Person thePerson) {
-        theAssignment = assignment;
-        SolutionIterator theIter = theAssignment.getSolutionIterator();
-        theSolution = (Solution) theIter.next(thePerson.userName);
+        SolutionIterator theIter = assignment.getSolutionIterator();
+        Solution theSolution = (Solution) theIter.next(thePerson.userName);
         if (theSolution == null) {
             tbSolution.setText("");
             lGrade.setText("-1");
@@ -115,15 +112,16 @@ public class StudentAssignmentMenu extends AssignmentMenu {
 
         }
 
-        lAssignmentName.setText(theAssignment.assName);
-        lDueDate.setText(theAssignment.dueDate.toString());
-        lSuggestedSolution.setText(theAssignment.suggestSolution.solutionFileName);
+        lAssignmentName.setText(assignment.assName);
+        lDueDate.setText(assignment.dueDate.toString());
+        lSuggestedSolution.setText(assignment.suggestSolution.solutionFileName);
         setVisible(true);
+        setDefaultCloseOperation(JDialog.DO_NOTHING_ON_CLOSE);
 
         if (boolSubmit) {
             if (theSolution == null) {
                 theSolution = new Solution();
-                theAssignment.addSolution(theSolution);
+                assignment.addSolution(theSolution);
             }
             theSolution.theAuthor = thePerson.userName;
             theSolution.solutionFileName = tbSolution.getText();
